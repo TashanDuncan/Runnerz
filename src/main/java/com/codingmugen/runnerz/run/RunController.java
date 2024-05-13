@@ -1,6 +1,7 @@
 package com.codingmugen.runnerz.run;
 
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,11 +11,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/runs")
 public class RunController {
-    private  final RunRepository runRepository;
+    @Autowired
+    private RunRepository runRepository;
 
-    public RunController(RunRepository runRepository) {
-        this.runRepository = runRepository;
-    }
+//    public RunController(RunRepository runRepository) {
+//        this.runRepository = runRepository;
+//    }
 
     @GetMapping("")
     List<Run> findAll() {
@@ -31,7 +33,7 @@ public class RunController {
         }
         return run.get();
     }
-    // post
+//    // post
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     void create(@Valid @RequestBody Run run) {

@@ -21,11 +21,11 @@ public class RunnerzApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(RunnerzApplication.class, args);
 	}
-	@Bean
-	CommandLineRunner runner(RunRepository runRepository){
-		return args -> {
-			Run run = new Run( 1, "Morning Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 5,Location.OUTDOOR);
-			runRepository.create(run);
-		};
-	}
+//	@Bean
+//	CommandLineRunner runner(RunRepository runRepository){
+//		return args -> {
+//			Run run = new Run( 1, "Morning Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 5,Location.OUTDOOR);
+//			runRepository.create(run);
+//		};
+//	}
 }
